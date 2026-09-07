@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郑孟达 · 学习委员竞选</title>
+  <meta name="description" content="郑孟达 · 2026级智航·17班学习委员竞选个人网站：不仅自己冲，更要带着全班赢。">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="topbar">
+    <a class="brand" href="#home">ZMD<span>· 学习委员竞选</span></a>
+    <nav class="topnav" aria-label="顶部导航">
+      <a href="#about">个人简介</a>
+      <a href="#duty">职务认识</a>
+      <a href="#plan">工作规划</a>
+      <a href="#life">竞选之外</a>
+      <a href="#end" class="topnav-cta">结束寄语</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ① 首页 -->
+    <section id="home" class="hero">
+      <div class="hero-grid">
+        <div class="hero-left reveal">
+          <p class="hero-kicker">2026级 · 智航·17班 · 竞选学习委员</p>
+          <h1 class="hero-title"><span class="hero-i">我是</span><span class="name">郑孟达</span></h1>
+          <p class="hero-slogan">“不仅自己冲，<br>更要带着全班赢。”</p>
+          <ul class="tags" aria-label="个人标签">
+            <li>三年班长</li>
+            <li>校级“好青年”</li>
+            <li>学习之星</li>
+            <li>区赛一等奖</li>
+            <li>国赛三等奖</li>
+            <li>志愿服务 20h+</li>
+            <li>Vibe Coding</li>
+          </ul>
+        </div>
+        <figure class="hero-right reveal">
+          <div class="avatar-ring">
+            <img src="assets/img/avatar.jpg" alt="郑孟达的照片">
+          </div>
+          <figcaption>郑孟达 · 竞选学习委员</figcaption>
+        </figure>
+      </div>
+      <nav class="part-nav reveal" aria-label="板块导航">
+        <a href="#about"><span>01</span>个人简介</a>
+        <a href="#duty"><span>02</span>职务认识</a>
+        <a href="#plan"><span>03</span>工作规划</a>
+        <a href="#life"><span>04</span>竞选之外</a>
+        <a href="#end"><span>05</span>结束寄语</a>
+      </nav>
+      <a class="scroll-hint" href="#about" aria-label="向下滚动">↓</a>
+    </section>
+
+    <!-- ② 个人简介 -->
+    <section id="about" class="section">
+      <header class="sec-head reveal">
+        <span class="sec-index">01</span>
+        <h2>个人简介</h2>
+      </header>
+
+      <div class="ai-avatar-block reveal">
+        <div class="ai-avatar" id="ai-avatar" tabindex="0" role="button" aria-label="可交互的个人AI形象">
+          <svg class="avatar-svg" viewBox="0 0 360 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#67e8f9"/>
+                <stop offset="1" stop-color="#a78bfa"/>
+              </linearGradient>
+              <radialGradient id="aglow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#67e8f9" stop-opacity="0.16"/>
+                <stop offset="1" stop-color="#67e8f9" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="180" cy="180" r="172" fill="url(#aglow)"/>
+            <circle class="orbit" cx="180" cy="180" r="148" fill="none" stroke="url(#ag)" stroke-width="1.2" stroke-dasharray="3 9" opacity="0.65"/>
+            <circle class="orbit orbit2" cx="180" cy="180" r="133" fill="none" stroke="url(#ag)" stroke-width="1" opacity="0.32"/>
+            <path class="head" d="M180 52 L262 94 L280 188 L238 292 L122 292 L80 188 L98 94 Z" fill="rgba(103,232,249,0.045)" stroke="url(#ag)" stroke-width="2"/>
+            <path class="line" d="M98 94 L180 148 L262 94"/>
+            <path class="line" d="M80 188 L280 188"/>
+            <path class="line" d="M180 52 L180 292"/>
+            <path class="line" d="M122 292 L180 148 L238 292"/>
+            <path class="eye" d="M128 152 L164 140 L168 164 L132 176 Z"/>
+            <path class="eye" d="M232 152 L196 140 L192 164 L228 176 Z"/>
+            <path class="line mouth" d="M158 236 L202 236"/>
+            <path class="line mouth2" d="M168 248 L192 248"/>
+            <circle class="node" cx="180" cy="52" r="4"/>
+            <circle class="node" cx="262" cy="94" r="4"/>
+            <circle class="node" cx="280" cy="188" r="4"/>
+            <circle class="node" cx="238" cy="292" r="4"/>
+            <circle class="node" cx="122" cy="292" r="4"/>
+            <circle class="node" cx="80" cy="188" r="4"/>
+            <circle class="node" cx="98" cy="94" r="4"/>
+            <path class="line" d="M280 188 H326 M326 188 V168 M326 160 H314"/>
+            <circle class="node" cx="332" cy="154" r="3"/>
+            <path class="line" d="M80 188 H34 M34 188 V208 M34 216 H46"/>
+            <circle class="node" cx="28" cy="222" r="3"/>
+            <circle class="dot" cx="180" cy="12" r="2"/>
+            <circle class="dot" cx="352" cy="180" r="2"/>
+            <circle class="dot" cx="180" cy="350" r="2"/>
+            <circle class="dot" cx="10" cy="180" r="2"/>
+          </svg>
+          <span class="ai-pulse" aria-hidden="true"></span>
+        </div>
+        <div class="ai-copy">
+          <h3>我的 AI 分身</h3>
+          <p>用几何与线条拼出的“数字我”——冷静、有一点未来感，也有一点人情味。悬停或点击它，看它的反应。</p>
+        </div>
+      </div>
+
+      <div class="boards">
+        <details class="board reveal" open>
+          <summary>
+            <span class="bnum">01</span>
+            <span class="btitle">
+              <strong>班长经历</strong>
+              <small>高中三年 · 把班级的事扛在肩上</small>
+            </span>
+            <span class="caret" aria-hidden="true"></span>
+          </summary>
+          <div class="board-body">
+            <p class="board-text">高中三年担任班长，班级日常事务我和老师一起盯，升旗仪式、主题班会基本由我统筹，所在班级<strong>多次获“流动红旗”</strong>。毕业前获评学校<strong>首届“好青年”称号</strong>，<strong>全校 1500 余人中仅评选 10 人</strong>。</p>
+            <p class="board-note">下方是“致理好青年”评选的演讲片段。</p>
+            <div class="media">
+              <video class="media-video" controls preload="metadata" poster="assets/video/poster.jpg">
+                <source src="assets/video/speech.webm" type="video/webm">
+                <source src="assets/video/speech.mp4" type="video/mp4">
+                你的浏览器不支持视频播放。
+              </video>
+              <figure><img src="assets/img/board1-leader-01.jpg" alt="班级课堂场景" loading="lazy"></figure>
+              <figure><img src="assets/img/board1-leader-03.jpg" alt="课堂" loading="lazy"></figure>
+              <figure><img src="assets/img/board1-leader-04.jpg" alt="课堂" loading="lazy"></figure>
+              <figure><img src="assets/img/board1-leader-05.jpg" alt="班级日常" loading="lazy"></figure>
+              <figure><img src="assets/img/board2-study-01.jpg" alt="机器人项目实践" loading="lazy"></figure>
+            </div>
+          </div>
+        </details>
+
+        <details class="board reveal">
+          <summary>
+            <span class="bnum">02</span>
+            <span class="btitle">
+              <strong>学习与竞赛</strong>
+              <small>肯下笨功夫 · 也敢上赛场</small>
+            </span>
+            <span class="caret" aria-hidden="true"></span>
+          </summary>
+          <div class="board-body">
+            <p class="board-text">学习上肯下笨功夫，<strong>多次获校级学习之星、进步之星</strong>。作为校科学院成员，代表学校参加区赛、国赛各一项，获<strong>区青少年科技创新大赛 3D 虚拟机器人比赛一等奖</strong>、<strong>第七届全国青少年人工智能创新挑战赛机器人工程设计专项赛三等奖</strong>。</p>
+            <div class="media">
+              <figure><img src="assets/img/board2-study-02.jpg" alt="课题汇报现场" loading="lazy"></figure>
+              <figure><img src="assets/img/board2-study-03.jpg" alt="3D虚拟机器人比赛一等奖证书" loading="lazy"></figure>
+              <figure><img src="assets/img/board2-study-04.jpg" alt="竞赛参赛信息表" loading="lazy"></figure>
+            </div>
+          </div>
+        </details>
+
+        <details class="board reveal">
+          <summary>
+            <span class="bnum">03</span>
+            <span class="btitle">
+              <strong>团员与志愿服务</strong>
+              <small>把时间花在别人身上一点</small>
+            </span>
+            <span class="caret" aria-hidden="true"></span>
+          </summary>
+          <div class="board-body">
+            <p class="board-text">作为共青团员，我按团的纪律履行义务；学校开放日的志愿服务几乎都参加，<strong>累计服务时长 20 小时以上</strong>。</p>
+          </div>
+        </details>
+
+        <details class="board reveal">
+          <summary>
+            <span class="bnum">04</span>
+            <span class="btitle">
+              <strong>Vibe Coding</strong>
+              <small>把想法做成真的东西</small>
+            </span>
+            <span class="caret" aria-hidden="true"></span>
+          </summary>
+          <div class="board-body">
+            <p class="board-text">我喜欢把想法写成代码。已经做出两件作品：一个<strong>网页版小游戏</strong>，一个<strong>微信小程序「抉择助手」</strong>——随机抽取、逐一淘汰、摇签决定，帮“选择困难症”做决定。</p>
+            <div class="project-row">
+              <div class="project-card">
+                <span class="project-tag">Web</span>
+                <h4>网页版小游戏</h4>
+                <p>点击下方链接即可试玩。</p>
+                <!-- ▼ 替换说明：把下面 href="#" 改成你的游戏链接即可，例如 href="https://你的游戏地址" -->
+                <a class="game-link" href="#" target="_blank" rel="noopener">🕹 点此体验小游戏 <span class="link-badge">链接待插入</span></a>
+              </div>
+              <div class="project-card">
+                <span class="project-tag">小程序</span>
+                <h4>抉择助手</h4>
+                <p>随机抽取 / 逐一淘汰 / 摇签决定。</p>
+                <figure class="mini-figure"><img src="assets/img/board4-code-01.jpg" alt="抉择助手小程序界面截图" loading="lazy"></figure>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ③ 对竞选职务的认识 -->
+    <section id="duty" class="section">
+      <header class="sec-head reveal">
+        <span class="sec-index">02</span>
+        <h2>对竞选职务的认识</h2>
+        <p>学习委员，说到底就三件事。</p>
+      </header>
+      <div class="duty-grid">
+        <article class="duty-card reveal">
+          <span class="duty-num">01</span>
+          <h3>信息要<span class="hl">准</span></h3>
+          <p>调课、考试、选课以及补考重修的时间节点，通知下来要第一时间传到人，并确认每个人都收到。大学没有班主任天天盯着，漏一条通知，同学可能就错过一次报名。</p>
+        </article>
+        <article class="duty-card reveal">
+          <span class="duty-num">02</span>
+          <h3>情况要<span class="hl">报</span></h3>
+          <p>考勤、作业完成情况、哪门课大家普遍跟不上，要定期整理后反馈给任课老师和辅导员。课下的真实情况，得有人替同学递上去。</p>
+        </article>
+        <article class="duty-card reveal">
+          <span class="duty-num">03</span>
+          <h3>学风要<span class="hl">带</span></h3>
+          <p>资料共享、集体自习、互助小组，加上四六级和计算机等级考试的报名提醒，这些事得有人牵头做起来。我自己也会先把成绩稳住——学委先不能自己掉队。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ④ 工作规划 -->
+    <section id="plan" class="section">
+      <header class="sec-head reveal">
+        <span class="sec-index">03</span>
+        <h2>对学委工作的规划</h2>
+        <p>五件事，一件件落地。</p>
+      </header>
+      <ol class="timeline">
+        <li class="reveal">
+          <span class="t-num">01</span>
+          <div>
+            <h3>开学就位</h3>
+            <p>开学前建好课程表，列清作业方式和截止时间。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="t-num">02</span>
+          <div>
+            <h3>通知不过夜</h3>
+            <p>学院下达的调课、考试、报名类信息，当天转到班级群并落实到人；重要事项逐一确认回复，作业截止前一天统一提醒一次。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="t-num">03</span>
+          <div>
+            <h3>每月反馈</h3>
+            <p>每月收一次意见，如实报老师，适当组织集体自习。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="t-num">04</span>
+          <div>
+            <h3>互助不搞形式</h3>
+            <p>帮助基础薄弱的同学结对帮扶。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="t-num">05</span>
+          <div>
+            <h3>竞赛与考证</h3>
+            <p>竞赛和考证信息提前整理发群里；想参赛的同学可以提前组队。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ⑤ 竞选之外的生活 -->
+    <section id="life" class="section section-life">
+      <header class="sec-head reveal">
+        <span class="sec-index">04</span>
+        <h2>竞选之外，生活中的我</h2>
+        <p>我自认为是一个非常“有意思”的人</p>
+      </header>
+
+      <article class="life-card reveal">
+        <header class="life-head">
+          <div>
+            <span class="life-index">01</span>
+            <h3>风景</h3>
+          </div>
+          <span class="life-dot" aria-hidden="true"></span>
+        </header>
+        <div class="life-pills" aria-label="风景分类">
+          <span class="pill pill-dark">随手拍</span>
+          <span class="pill">城市</span>
+          <span class="pill">黄昏</span>
+          <span class="pill">夜空</span>
+          <span class="pill">山川</span>
+        </div>
+        <div class="fan">
+          <figure><img src="assets/img/life-scenery-01.jpg" alt="夜景路灯" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-02.jpg" alt="黄昏街道" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-03.jpg" alt="夜空与月亮" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-04.jpg" alt="夜晚的树" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-05.jpg" alt="黄昏建筑剪影" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-06.jpg" alt="黄昏枯树剪影" loading="lazy"></figure>
+          <figure><img src="assets/img/life-scenery-07.jpg" alt="远山与建筑" loading="lazy"></figure>
+          <figure><img src="assets/img/board3-volunteer-01.jpg" alt="夕阳剪影" loading="lazy"></figure>
+        </div>
+        <footer class="life-foot">去看云，去等一场黄昏。</footer>
+      </article>
+
+      <article class="life-card reveal">
+        <header class="life-head">
+          <div>
+            <span class="life-index">02</span>
+            <h3>运动</h3>
+          </div>
+          <span class="life-dot" aria-hidden="true"></span>
+        </header>
+        <div class="life-pills" aria-label="运动分类">
+          <span class="pill pill-dark">动起来</span>
+          <span class="pill">篮球</span>
+          <span class="pill">排球</span>
+          <span class="pill">赛场</span>
+        </div>
+        <div class="fan">
+          <figure><img src="assets/img/life-sport-01.jpg" alt="篮球比赛全景" loading="lazy"></figure>
+          <figure><img src="assets/img/life-sport-02.jpg" alt="排球比赛" loading="lazy"></figure>
+          <figure><img src="assets/img/life-sport-03.jpg" alt="篮球投篮瞬间" loading="lazy"></figure>
+          <figure><img src="assets/img/board1-leader-02.jpg" alt="体育馆集体活动" loading="lazy"></figure>
+        </div>
+        <footer class="life-foot">胜负之外，还有队友。</footer>
+      </article>
+
+      <article class="life-card reveal">
+        <header class="life-head">
+          <div>
+            <span class="life-index">03</span>
+            <h3>小动物</h3>
+          </div>
+          <span class="life-dot" aria-hidden="true"></span>
+        </header>
+        <div class="life-pills" aria-label="小动物分类">
+          <span class="pill pill-dark">治愈系</span>
+          <span class="pill">猫</span>
+          <span class="pill">狗</span>
+          <span class="pill">街角</span>
+        </div>
+        <div class="fan">
+          <figure><img src="assets/img/life-animal-01.jpg" alt="街角的小狗" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-02.jpg" alt="柴犬" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-03.jpg" alt="黑猫" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-04.jpg" alt="两只猫" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-05.jpg" alt="墙头的猫" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-06.jpg" alt="奶牛猫" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-07.jpg" alt="白猫" loading="lazy"></figure>
+          <figure><img src="assets/img/life-animal-08.jpg" alt="白猫" loading="lazy"></figure>
+        </div>
+        <footer class="life-foot">它们教会我：耐心与温柔。</footer>
+      </article>
+    </section>
+
+    <!-- ⑥ 结束页 -->
+    <section id="end" class="section section-end">
+      <div class="end-inner reveal">
+        <h2 class="end-slogan"><span class="slogan-line">祝大家<span class="hl">“孟”</span>想成真，<span class="hl">“达”</span>济天下，</span><span class="slogan-line">我们都<span class="hl">“郑”</span>在路上</span></h2>
+        <p class="end-sub">我是郑孟达，期待与你的交流</p>
+        <div class="qr-card">
+          <img src="assets/qr/wechat-qr.png" alt="郑孟达的微信二维码" width="300" height="300">
+          <p class="qr-name">Zmd · 广东深圳</p>
+          <p class="qr-tip">扫一扫，添加我为好友</p>
+        </div>
+        <p class="end-thanks">感谢你看到这里 · 期待为 17 班尽一份力</p>
+      </div>
+      <footer class="site-foot">
+        <div class="foot-3d" aria-hidden="true"><canvas id="footer-canvas"></canvas></div>
+        <p>郑孟达 · 2026级学习委员竞选 · 个人网站</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
