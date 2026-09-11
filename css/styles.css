@@ -57,13 +57,13 @@ a { color: inherit; text-decoration: none; }
 .topnav { display: flex; gap: clamp(12px, 2.4vw, 30px); align-items: center; }
 .topnav a { font-size: 14px; color: var(--muted); transition: color 0.25s ease; }
 .topnav a:hover { color: var(--text); }
-.topnav .topnav-cta {
+.topnav .topnav-outline, .topnav .topnav-cta {
   color: var(--accent);
   border: 1px solid rgba(94, 234, 212, 0.35);
   padding: 6px 16px;
   border-radius: 999px;
 }
-.topnav .topnav-cta:hover { background: rgba(94, 234, 212, 0.08); color: var(--accent); }
+.topnav .topnav-outline:hover, .topnav .topnav-cta:hover { background: rgba(94, 234, 212, 0.08); color: var(--accent); }
 
 /* ============ 区块通用 ============ */
 .section {
