@@ -244,55 +244,6 @@ body.js .reveal:not(.in) {
 @keyframes hintFloat { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(8px); opacity: 1; } }
 
 /* ============ ② 个人简介 ============ */
-.ai-avatar-block {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center;
-  margin-bottom: clamp(48px, 7vw, 88px);
-  padding: clamp(24px, 3vw, 40px);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008));
-}
-.ai-avatar {
-  position: relative;
-  width: clamp(150px, 18vw, 210px);
-  cursor: pointer;
-  outline: none;
-  animation: aiFloat 6s ease-in-out infinite;
-}
-.avatar-svg { width: 100%; height: auto; transition: filter 0.5s ease, transform 0.4s ease; }
-.ai-avatar:hover .avatar-svg, .ai-avatar:focus-visible .avatar-svg { transform: scale(1.045); }
-.ai-avatar.lit .avatar-svg { filter: hue-rotate(80deg) saturate(1.25) drop-shadow(0 0 18px rgba(167,139,250,0.55)); }
-.ai-avatar .head { transition: fill 0.4s ease; }
-.ai-avatar:hover .head, .ai-avatar:focus-visible .head { fill: rgba(103, 232, 249, 0.14); }
-.ai-avatar .eye { fill: url(#ag); transition: fill 0.35s ease; }
-.ai-avatar.lit .eye { fill: #f0abfc; }
-.ai-avatar .line { stroke: url(#ag); stroke-width: 1.1; fill: none; opacity: 0.55; }
-.ai-avatar .node { fill: var(--accent); }
-.ai-avatar .dot { fill: var(--accent); opacity: 0.6; }
-.ai-pulse {
-  position: absolute;
-  inset: 8%;
-  border-radius: 50%;
-  border: 1px solid rgba(94, 234, 212, 0.25);
-  opacity: 0;
-  pointer-events: none;
-}
-.ai-avatar.lit .ai-pulse { animation: pulseRing 1.6s ease-out infinite; }
-@keyframes aiFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-@keyframes pulseRing {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  100% { transform: scale(1.35); opacity: 0; }
-}
-.orbit { transform-box: fill-box; transform-origin: center; animation: spin 26s linear infinite; }
-.orbit2 { animation: spin 38s linear infinite reverse; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.node { transform-box: fill-box; transform-origin: center; animation: nodePulse 2.6s ease-in-out infinite alternate; }
-@keyframes nodePulse { from { opacity: 0.4; transform: scale(0.82); } to { opacity: 1; transform: scale(1.12); } }
-.ai-copy h3 { font-size: 22px; margin-bottom: 10px; }
-.ai-copy p { color: var(--muted); max-width: 560px; }
 .boards { border-top: 1px solid var(--line-strong); }
 .board { border-bottom: 1px solid var(--line-strong); }
 .board summary {
@@ -417,77 +368,7 @@ body.js .reveal:not(.in) {
 .mini-figure { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); margin-top: 4px; }
 .mini-figure img { width: 100%; height: auto; max-height: 640px; object-fit: contain; margin: 0 auto; }
 
-/* ============ ③ 职务认识 ============ */
-.duty-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.duty-card {
-  position: relative;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(26px, 3vw, 38px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.006));
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.duty-card:hover { transform: translateY(-6px); border-color: rgba(94, 234, 212, 0.45); }
-.duty-num {
-  position: absolute;
-  top: 18px;
-  right: 26px;
-  font-size: 74px;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.045);
-}
-.duty-card h3 { font-size: clamp(24px, 2.6vw, 30px); font-weight: 700; margin-bottom: 16px; }
-.duty-card p { color: var(--muted); font-size: 15px; }
-
-/* ============ ④ 工作规划 ============ */
-.timeline {
-  list-style: none;
-  position: relative;
-  max-width: 860px;
-  padding-left: 0;
-}
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 27px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(94,234,212,0.6), rgba(94,234,212,0.08));
-}
-.timeline li {
-  position: relative;
-  display: flex;
-  gap: clamp(20px, 3vw, 36px);
-  padding: 0 0 clamp(30px, 4vw, 46px) 0;
-}
-.timeline li:last-child { padding-bottom: 0; }
-.t-num {
-  flex: none;
-  z-index: 1;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  background: var(--bg);
-  border: 1px solid rgba(94, 234, 212, 0.45);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-.timeline li:hover .t-num { background: var(--accent); color: var(--bg); }
-.timeline h3 { font-size: 21px; margin: 4px 0 8px; }
-.timeline p { color: var(--muted); max-width: 640px; }
-
-/* ============ ⑤ 生活（复刻浅色卡片参考样式） ============ */
+/* ============ ③ 生活（复刻浅色卡片参考样式） ============ */
 .section-life { max-width: 1320px; }
 .life-card {
   background: var(--card-bg);
@@ -649,8 +530,6 @@ body.js .reveal:not(.in) {
   .hero { padding-top: 110px; }
   .hero-right { order: 2; }
   .hero-left { order: 1; }
-  .duty-grid { grid-template-columns: 1fr; }
-  .ai-avatar-block { grid-template-columns: 1fr; justify-items: start; }
 }
 @media (max-width: 720px) {
   .topnav a { display: none; }

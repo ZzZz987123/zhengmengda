@@ -42,18 +42,6 @@
     }, 4000);
   }
 
-  /* ---------- AI 形象交互 ---------- */
-  var avatar = document.getElementById("ai-avatar");
-  if (avatar) {
-    avatar.addEventListener("click", function () { avatar.classList.toggle("lit"); });
-    avatar.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        avatar.classList.toggle("lit");
-      }
-    });
-  }
-
   /* ---------- 待插入链接：阻止空 # 跳转 ---------- */
   document.querySelectorAll('a[href="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) { e.preventDefault(); });
