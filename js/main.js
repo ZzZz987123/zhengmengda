@@ -94,118 +94,67 @@
     else if (e.key === "ArrowRight") openLightbox(lbIndex + 1);
   });
 
-  /* ---------- 轻量 3D 彩蛋 ---------- */
-  if (typeof THREE === "undefined" || reduceMotion) return;
-
-  /* 全站粒子背景（所有板块共享） */
-  var bgCanvas = document.getElementById("bg-canvas");
-  if (bgCanvas) {
-    var isMobileBg = window.innerWidth < 768;
-    var bRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true });
-    bRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobileBg ? 1.5 : 2));
-    var bScene = new THREE.Scene();
-    var bCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-    bCamera.position.z = 9;
-
-    var COUNT = isMobileBg ? 220 : 420;
-    var positions = new Float32Array(COUNT * 3);
-    for (var i = 0; i < COUNT; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 22;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 13;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 9;
+  /* Procedural solid geometry, lit with a restrained studio setup. */
+  var canvas = document.getElementById('sculpture-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true }); }
+  catch (error) { return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(36, 1, 0.1, 40);
+  camera.position.set(0, 0, 9);
+  var sculpture = new THREE.Group();
+  scene.add(sculpture);
+  var silver = new THREE.MeshStandardMaterial({ color: 0x9b9e9d, metalness: 0.72, roughness: 0.32 });
+  var bronze = new THREE.MeshStandardMaterial({ color: 0x8b7960, metalness: 0.64, roughness: 0.38 });
+  var ring = new THREE.Mesh(new THREE.TorusGeometry(2.45, 0.16, 24, 128), silver);
+  ring.rotation.set(0.38, 0.65, -0.25);
+  sculpture.add(ring);
+  var inner = new THREE.Mesh(new THREE.TorusGeometry(2.12, 0.07, 16, 128), bronze);
+  inner.rotation.set(-0.55, -0.52, 0.25);
+  sculpture.add(inner);
+  var arc = new THREE.Mesh(new THREE.TorusGeometry(2.75, 0.035, 12, 100, Math.PI * 1.5), bronze);
+  arc.rotation.set(0.18, -0.2, 0.8);
+  sculpture.add(arc);
+  scene.add(new THREE.HemisphereLight(0xe3e7ed, 0x343029, 1.5));
+  var key = new THREE.DirectionalLight(0xfff2dc, 2.4);
+  key.position.set(-3, 5, 5); scene.add(key);
+  var rim = new THREE.DirectionalLight(0xbacadd, 1.8);
+  rim.position.set(4, -1, 2); scene.add(rim);
+  var holder = canvas.parentElement;
+  var visible = true, frame = 0, last = 0, time = 0, pointerX = 0, pointerY = 0;
+  function render() { renderer.render(scene, camera); }
+  function resize() {
+    var w = holder.clientWidth, h = holder.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.position.z = Math.max(9, 3.2 / (Math.tan(Math.PI / 10) * camera.aspect)); camera.updateProjectionMatrix(); render();
+  }
+  function animate(now) {
+    frame = 0;
+    if (!visible || document.hidden || reduceMotion) { last = 0; return; }
+    if (!last || now - last >= 32) {
+      time += last ? Math.min((now - last) / 1000, 0.1) : 0;
+      last = now;
+      sculpture.rotation.y = Math.sin(time * 0.16) * 0.16 + pointerX * 0.07;
+      sculpture.rotation.x = Math.cos(time * 0.12) * 0.06 + pointerY * 0.05;
+      arc.rotation.z = 0.8 + time * 0.025;
+      render();
     }
-    var bGeom = new THREE.BufferGeometry();
-    bGeom.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    var dotCanvas = document.createElement("canvas");
-    dotCanvas.width = dotCanvas.height = 32;
-    var dotCtx = dotCanvas.getContext("2d");
-    var grad = dotCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
-    grad.addColorStop(0, "rgba(255,255,255,1)");
-    grad.addColorStop(0.45, "rgba(255,255,255,0.55)");
-    grad.addColorStop(1, "rgba(255,255,255,0)");
-    dotCtx.fillStyle = grad;
-    dotCtx.fillRect(0, 0, 32, 32);
-    var dotTex = new THREE.CanvasTexture(dotCanvas);
-    var bMat = new THREE.PointsMaterial({
-      color: 0x5eead4,
-      size: 0.12,
-      map: dotTex,
-      transparent: true,
-      opacity: 0.5,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
-    });
-    var bPoints = new THREE.Points(bGeom, bMat);
-    bScene.add(bPoints);
-
-    var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-    var scrollOffset = window.scrollY;
-    var onMouseMove = function (e) {
-      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
-    };
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-
-    var resizeBg = function () {
-      var w = window.innerWidth, h = window.innerHeight;
-      bRenderer.setSize(w, h, false);
-      bCamera.aspect = w / h;
-      bCamera.updateProjectionMatrix();
-    };
-    resizeBg();
-    window.addEventListener("resize", resizeBg);
-    window.addEventListener("scroll", function () { scrollOffset = window.scrollY; }, { passive: true });
-
-    (function animateBg() {
-      requestAnimationFrame(animateBg);
-      mouseX += (targetX - mouseX) * 0.04;
-      mouseY += (targetY - mouseY) * 0.04;
-      bPoints.rotation.y += 0.00045;
-      bCamera.position.x += (mouseX * 1.1 - bCamera.position.x) * 0.04;
-      bCamera.position.y += (-mouseY * 0.7 + scrollOffset * 0.0006 - bCamera.position.y) * 0.04;
-      bCamera.lookAt(bScene.position);
-      bRenderer.render(bScene, bCamera);
-    })();
+    frame = requestAnimationFrame(animate);
   }
-
-  /* 页脚旋转几何体：悬停加速 */
-  var footCanvas = document.getElementById("footer-canvas");
-  if (footCanvas) {
-    var fRenderer = new THREE.WebGLRenderer({ canvas: footCanvas, alpha: true, antialias: true });
-    fRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    var fScene = new THREE.Scene();
-    var fCamera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
-    fCamera.position.z = 5.2;
-
-    var fGeom = new THREE.IcosahedronGeometry(1.7, 1);
-    var fMat = new THREE.MeshBasicMaterial({
-      color: 0x5eead4,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.28
-    });
-    var fMesh = new THREE.Mesh(fGeom, fMat);
-    fScene.add(fMesh);
-
-    var speed = 1, targetSpeed = 1;
-    var foot3d = footCanvas.parentElement;
-    var setSize = function () {
-      var size = Math.min(foot3d.clientHeight, 130);
-      fRenderer.setSize(size, size, false);
-      fRenderer.domElement.style.width = size + "px";
-      fRenderer.domElement.style.height = size + "px";
-    };
-    setSize();
-    window.addEventListener("resize", setSize);
-    foot3d.addEventListener("mouseenter", function () { targetSpeed = 3.2; });
-    foot3d.addEventListener("mouseleave", function () { targetSpeed = 1; });
-
-    (function animateFoot() {
-      requestAnimationFrame(animateFoot);
-      speed += (targetSpeed - speed) * 0.06;
-      fMesh.rotation.x += 0.0032 * speed;
-      fMesh.rotation.y += 0.005 * speed;
-      fRenderer.render(fScene, fCamera);
-    })();
-  }
+  function resume() { if (!frame && visible && !document.hidden && !reduceMotion) frame = requestAnimationFrame(animate); }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', resume);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(entries) {
+    visible = entries[0].isIntersecting; resume();
+  }).observe(holder);
+  if (window.matchMedia('(pointer: fine)').matches) document.querySelector('.hero').addEventListener('pointermove', function(event) {
+    var rect = holder.getBoundingClientRect();
+    pointerX = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1));
+    pointerY = Math.max(-1, Math.min(1, (event.clientY - rect.top) / rect.height * 2 - 1));
+  });
+  canvas.addEventListener('webglcontextlost', function(event) { event.preventDefault(); visible = false; canvas.style.opacity = '0'; });
+  canvas.addEventListener('webglcontextrestored', function() { visible = true; canvas.style.opacity = ''; resize(); resume(); });
+  resume();
 })();

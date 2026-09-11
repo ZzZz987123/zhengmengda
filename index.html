@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>郑孟达 · 学习委员竞选</title>
-  <meta name="description" content="郑孟达 · 2026级智航·17班学习委员竞选个人网站：不仅自己冲，更要带着全班赢。">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>郑孟达 · 个人网站</title>
+  <meta name="description" content="郑孟达 · 2026级智航·17班个人网站：不仅自己冲，更要带着全班赢。">
+  <link rel="stylesheet" href="css/styles.css?v=20260911">
 </head>
 <body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
   <header class="topbar">
-    <a class="brand" href="#home">ZMD<span>· 学习委员竞选</span></a>
+    <a class="brand" href="#home">ZMD<span>· 个人网站</span></a>
     <nav class="topnav" aria-label="顶部导航">
       <a href="#about">个人简介</a>
-      <a href="#life">竞选之外</a>
+      <a href="#life">生活日常</a>
       <a href="#end" class="topnav-cta">结束寄语</a>
     </nav>
   </header>
@@ -23,7 +23,7 @@
     <section id="home" class="hero">
       <div class="hero-grid">
         <div class="hero-left reveal">
-          <p class="hero-kicker">2026级 · 智航·17班 · 竞选学习委员</p>
+          <p class="hero-kicker">2026级 · 智航·17班</p>
           <h1 class="hero-title"><span class="hero-i">我是</span><span class="name">郑孟达</span></h1>
           <p class="hero-slogan">“不仅自己冲，<br>更要带着全班赢。”</p>
           <ul class="tags" aria-label="个人标签">
@@ -37,15 +37,16 @@
           </ul>
         </div>
         <figure class="hero-right reveal">
+          <div class="sculpture" aria-hidden="true"><canvas id="sculpture-canvas"></canvas></div>
           <div class="avatar-ring">
             <img src="assets/img/avatar.jpg" alt="郑孟达的照片">
           </div>
-          <figcaption>郑孟达 · 竞选学习委员</figcaption>
+          <figcaption>郑孟达</figcaption>
         </figure>
       </div>
       <nav class="part-nav reveal" aria-label="板块导航">
         <a href="#about"><span>01</span>个人简介</a>
-        <a href="#life"><span>02</span>竞选之外</a>
+        <a href="#life"><span>02</span>生活日常</a>
         <a href="#end"><span>03</span>结束寄语</a>
       </nav>
       <a class="scroll-hint" href="#about" aria-label="向下滚动">↓</a>
@@ -59,7 +60,7 @@
       </header>
 
       <div class="boards">
-        <details class="board reveal" open>
+        <details class="board reveal">
           <summary>
             <span class="bnum">01</span>
             <span class="btitle">
@@ -150,11 +151,11 @@
       </div>
     </section>
 
-    <!-- ③ 竞选之外的生活 -->
+    <!-- ③ 生活日常的生活 -->
     <section id="life" class="section section-life">
       <header class="sec-head reveal">
         <span class="sec-index">02</span>
-        <h2>竞选之外，生活中的我</h2>
+        <h2>生活中的我</h2>
         <p>我自认为是一个非常“有意思”的人</p>
       </header>
 
@@ -247,16 +248,15 @@
           <p class="qr-name">Zmd · 广东深圳</p>
           <p class="qr-tip">扫一扫，添加我为好友</p>
         </div>
-        <p class="end-thanks">感谢你看到这里 · 期待为 17 班尽一份力</p>
       </div>
       <footer class="site-foot">
-        <div class="foot-3d" aria-hidden="true"><canvas id="footer-canvas"></canvas></div>
-        <p>郑孟达 · 2026级学习委员竞选 · 个人网站</p>
+        <span class="footer-monogram" aria-hidden="true">ZMD</span>
+        <p>郑孟达 · 个人网站</p>
       </footer>
     </section>
   </main>
 
   <script src="js/vendor/three.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260911"></script>
 </body>
 </html>
